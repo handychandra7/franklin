@@ -376,7 +376,7 @@ static void check_distance(int sp, int mt, Motor *mtr, double distance, double d
 	else {
 		// Maximum depends on number of subfragments.  Be conservative and use 0x7e per subfragment; assume 128 subfragments (largest power of 2 smaller than 10000/75)
 		// TODO: 10000 and 75 should follow the actual values for step_time in cdriver and TIME_PER_ISR in firmware.
-		int max = 0x7e << 7;
+		int max = 0x1e << 7;
 		if (abs(steps) > max) {
 			debug("overflow %d from cp %f dist %f steps/mm %f dt %f s %d max %d", steps, mtr->settings.current_pos, distance, mtr->steps_per_unit, dt, s, max);
 			steps = max * s;

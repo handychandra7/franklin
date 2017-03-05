@@ -1103,7 +1103,7 @@ class Printer: # {{{
 						self.home_motors.append((s, i, sp.axis[i], m))
 				self.limits[s].clear()
 			self.home_target = {}
-			dist = 1000 #TODO: use better value.
+			dist = 3000 #TODO: use better value.
 			for s, i, a, m in self.home_motors:
 				self.spaces[s].set_current_pos(i, 0)
 				if self._pin_valid(m['limit_max_pin']):

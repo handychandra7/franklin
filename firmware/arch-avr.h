@@ -24,17 +24,18 @@
 
 // Defines and includes.  {{{
 // Note: When changing this, also change max in cdriver/space.cpp
+#define STEPS_DELAY 60
 #ifdef FAST_ISR
-#define TIME_PER_ISR 75
+#define TIME_PER_ISR 180
 #ifndef STEPS_DELAY // {{{
 #define STEPS_DELAY 0	// Extra delay for steps, in units of 6 clock pulses.
 #endif // }}}
 #ifndef ADD_DIR_DELAY // {{{
-#if 1
+#if 0
 #define ADD_DIR_DELAY
 #else
 #define ADD_DIR_DELAY \
-		"\t"	"ldi 18, 40"	"\n" \
+		"\t"	"ldi 18, 0x3c"	"\n" \
 	"1:\t"		"dec 18"	"\n" \
 		"\t"	"brne 1b"	"\n"
 #endif
